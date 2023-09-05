@@ -18,7 +18,7 @@ categorias.forEach((categoria) => {
     nuevaCategoria.innerHTML = plantilla;
     nuevaCategoria.classList.add("categoria");
     nuevaCategoria.href = "#";
-    nuevaCategoria.id = categoria.id;
+    nuevaCategoria.dataset.categoria = categoria.id;
 
     contenedorCategorias.append(nuevaCategoria);
 });
