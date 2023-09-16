@@ -474,7 +474,7 @@ var dataCategorias = {
 };
 
 const { categorias } = dataCategorias;
-const contenedorCategorias = document.getElementById("categorias");
+const contenedorCategorias$1 = document.getElementById("categorias");
 
 categorias.forEach((categoria) => {
     const nuevaCategoria = document.createElement("a");
@@ -492,7 +492,19 @@ categorias.forEach((categoria) => {
     nuevaCategoria.innerHTML = plantilla;
     nuevaCategoria.classList.add("categoria");
     nuevaCategoria.href = "#";
-    nuevaCategoria.id = categoria.id;
+    nuevaCategoria.dataset.categoria = categoria.id;
 
-    contenedorCategorias.append(nuevaCategoria);
+    contenedorCategorias$1.append(nuevaCategoria);
+});
+
+const contenedorCategorias = document.getElementById("categorias");
+const galeria = document.getElementById("galeria");
+
+contenedorCategorias.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (e.target.closest("a")) {
+        galeria.classList.add("galeria--active");
+        document.body.style.overflow = "hidden";
+    }
 });
